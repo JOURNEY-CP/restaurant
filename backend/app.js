@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var ryfvhj = require('./util/random')
 // db connection SQL
 var mysql = require('mysql')
 var DBConnect = mysql.createConnection({
