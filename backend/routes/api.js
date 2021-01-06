@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const sampleRouterModule=require('./api/sample');
+const itemRouterModule=require('./api/item');
 
 const routerModules = {
-    '/sample': sampleRouterModule,
+    '/item': itemRouterModule,
 };
 
 apiRouter = DBConnect => {
