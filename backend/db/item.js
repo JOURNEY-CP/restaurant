@@ -13,9 +13,42 @@ const item = dbConnect => {
         });
     }
 
+
+    const getItemDetails= (item_id) =>{
+        return new Promise((resolve, reject) => {
+            const query = `SELECT * FROM item WHERE 
+            id=${dbConnect.escape(item_id)}`;
+            dbConnect.query(query,(error, results, _fields) => {
+                if (error) {
+                    console.log(error);
+                    reject('Failed');
+                    return;
+                }
+                resolve(results);
+            });
+        });
+    }
+
+    const getItemFeedback= (item_id) =>{
+        return new Promise((resolve, reject) => {
+            const query = `SELECT feedback,rating FROM item_feedback WHERE 
+            item_id=${dbConnect.escape(item_id)}`;
+            dbConnect.query(query,(error, results, _fields) => {
+                if (error) {
+                    console.log(error);
+                    reject('Failed');
+                    return;
+                }
+                resolve(results);
+            });
+        });
+    }
+
     return {
-        getAllItems
+        getAllItems,
+        getItemDetails,
+        getItemFeedback,
     };
-}
+};
 
 module.exports = item;

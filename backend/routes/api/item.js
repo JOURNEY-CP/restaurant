@@ -15,5 +15,20 @@ router.get('/',(req,res)=>{
       .then(data=>res.status(200).send(data))
       .catch(err=>res.status(500).send(err));
   });
-   
+ 
+ router.get('/:id',(req,res)=>{
+   const item_id=req.params.id;
+    itemDbConnect.
+      getItemDetails(item_id)
+      .then(data=>res.status(200).send(data))
+      .catch(err=>res.status(500).send(err));
+ });
+ router.get('/:id/feedback',(req,res)=>{
+  const item_id=req.params.id;
+   itemDbConnect.
+     getItemDetails(item_id)
+     .then(data=>res.status(200).send(data))
+     .catch(err=>res.status(500).send(err));
+});
+
 module.exports = itemRouter;
