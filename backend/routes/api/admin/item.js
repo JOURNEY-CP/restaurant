@@ -14,8 +14,8 @@ const adminItemRouter = DBConnect => {
       const {name,price,description}=req.body;
       const id=random.randomId;
       itemDbConnect.
-        AddAllItems(id,name,price,description)
-        .then(()=>res.status(200).send(id))
+        addAllItems(id,name,price,description)
+        .then(data=>res.status(200).send(data))
         .catch(err=>res.status(500).send(err));
     });
      
