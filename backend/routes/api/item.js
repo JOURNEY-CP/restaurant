@@ -16,17 +16,21 @@ router.get('/',(req,res)=>{
       .catch(err=>res.status(500).send(err));
   });
  
- router.get('/:id',(req,res)=>{
-   const item_id=req.params.id;
+ router.get('/:item_id',(req,res)=>{
+   const item_id=req.params.item_id;
     itemDbConnect.
       getItemDetails(item_id)
       .then(data=>res.status(200).send(data))
       .catch(err=>res.status(500).send(err));
  });
- router.get('/:id/feedback',(req,res)=>{
-  const item_id=req.params.id;
+
+ 
+ router.post('/:item_id/feedback',(req,res)=>{
+  //  res.status(200).send("Hi");
+  //  return ;
+  const item_id=req.params.item_id;
    itemDbConnect.
-     getItemDetails(item_id)
+     addItemFeedback(item_id,req.body.feedback,req.body.rating)
      .then(data=>res.status(200).send(data))
      .catch(err=>res.status(500).send(err));
 });

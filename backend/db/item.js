@@ -29,10 +29,13 @@ const item = dbConnect => {
         });
     }
 
-    const getItemFeedback= (item_id) =>{
+    const addItemFeedback= (item_id,feedback,rating) =>{
         return new Promise((resolve, reject) => {
-            const query = `SELECT feedback,rating FROM item_feedback WHERE 
-            item_id=${dbConnect.escape(item_id)}`;
+            const query = `INSERT INTO item_feedback(id,item_id,feedback,rating) VALUES
+            (${dbConnect.escape(item_id)},
+             ${dbConnect.escape(item_id)},
+             ${dbConnect.escape(feedback)},
+             ${dbConnect.escape(rating)})`;
             dbConnect.query(query,(error, results, _fields) => {
                 if (error) {
                     console.log(error);
@@ -47,7 +50,7 @@ const item = dbConnect => {
     return {
         getAllItems,
         getItemDetails,
-        getItemFeedback,
+        addItemFeedback,
     };
 };
 

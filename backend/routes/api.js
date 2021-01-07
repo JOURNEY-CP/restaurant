@@ -5,7 +5,7 @@ const itemRouterModule=require('./api/order');
 
 const routerModules = {
     '/item': itemRouterModule,
-    '/order':itemRouterModule,
+    '/order': itemRouterModule,
 };
 
 apiRouter = DBConnect => {
