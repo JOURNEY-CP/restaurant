@@ -18,9 +18,17 @@ const adminOrderRouter = DBConnect => {
 
     router.get('/:order_id',(req,res)=>{
         const id=req.params.order_id;
-        orderDbConnect.
-            getOrderMetaDetails(id)
-            .then(data=>res.status(200).send(data))
+        var promises=[
+            orderDbConnect.getOrderMetaDetails(id),
+            orderDbConnect.getOrderItemDetails(id)
+        ];
+        Promise.all(promises) 
+            .then(data=>{
+                var result={};
+                result["meta"]=data[0];
+                result["items"]=data[1];
+                res.status(200).send(result)
+            })
             .catch(err=>res.status(500).send(err));
     })
 
