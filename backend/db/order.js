@@ -1,3 +1,5 @@
+const {randomInt}=require('../util/random');
+
 const order = dbConnect => {
     
     const getAllOrders = () =>{
@@ -68,8 +70,7 @@ const order = dbConnect => {
                 ${dbConnect.escape(customer_name)},
                 ${dbConnect.escape(customer_mobile)},
                 ${dbConnect.escape(table_no)},
-                ${dbConnect.escape(order_id)},
-                
+                ${dbConnect.escape(randomInt(5))}    
             )`;
             dbConnect.query(query,(error, results, _fields) => {
                 if (error) {
@@ -77,6 +78,14 @@ const order = dbConnect => {
                     reject('Failed');
                     return;
                 }
+                const query2 =`INSERT INTO order_item
+                (order_id,item_id,quantity) VALUES (
+                    ${dbConnect.escape(order_id)},
+                    ${dbConnect.escape(customer_name)},
+                    ${dbConnect.escape(customer_mobile)},
+                    ${dbConnect.escape(table_no)},
+                    ${dbConnect.escape(randomInt(5))}    
+                )`;
                 resolve();
             });
         });

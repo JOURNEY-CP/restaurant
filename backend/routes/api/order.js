@@ -12,12 +12,13 @@ const orderRouter = DBConnect => {
     return router;
   };
 
-router.post('/place',(req,res)=>{
+router.post('/',(req,res)=>{
     //  res.status(200).send("Hi");
     //  return ;
-    const id={randomId}
+
+    const id=randomId(13)
      orderDbConnect.
-       addOrder()
+       addOrder(id,req.body.customer_name,req.body.customer_mobile,req.body.table_no)
        .then(()=>res.status(200).send(id))
        .catch(err=>res.status(500).send(err));
   });
