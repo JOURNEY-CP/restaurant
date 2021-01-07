@@ -21,3 +21,5 @@ const order = dbConnect => {
         addOrder,
     };
 };
+
+module.exports = order;

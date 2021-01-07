@@ -1,21 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-var itemDb=require('../../db/item');
-let itemDbConnect;
+var orderDb=require('../../db/order');
+let orderDbConnect;
 
-const itemRouter = DBConnect => {
-  itemDbConnect=itemDb(DBConnect);
-  return router;
-};
+
+
+const orderRouter = DBConnect => {
+    orderDbConnect=orderDb(DBConnect);
+    return router;
+  };
 
 router.post('/place',(req,res)=>{
     //  res.status(200).send("Hi");
     //  return ;
-     itemDbConnect.
+     orderDbConnect.
        addOrder(item_id,req.body.feedback,req.body.rating)
        .then(data=>res.status(200).send(data))
        .catch(err=>res.status(500).send(err));
   });
 
-module.exports = itemRouter;
+module.exports = orderRouter;
