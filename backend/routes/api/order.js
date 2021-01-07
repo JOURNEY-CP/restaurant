@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var orderDb=require('../../db/order');
+const {randomId}=require('../../util/random');
 let orderDbConnect;
 
 
@@ -14,9 +15,10 @@ const orderRouter = DBConnect => {
 router.post('/place',(req,res)=>{
     //  res.status(200).send("Hi");
     //  return ;
+    const id={randomId}
      orderDbConnect.
-       addOrder(item_id,req.body.feedback,req.body.rating)
-       .then(data=>res.status(200).send(data))
+       addOrder()
+       .then(()=>res.status(200).send(id))
        .catch(err=>res.status(500).send(err));
   });
 
