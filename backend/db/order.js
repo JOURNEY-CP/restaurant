@@ -1,7 +1,7 @@
 const order = dbConnect => {
     const getAllOrders = () =>{
         return new Promise((resolve, reject) => {
-            const query = `SELECT * FROM orders`;
+            const query = `SELECT * FROM order_meta`;
             dbConnect.query(query,(error, results, _fields) => {
                 if (error) {
                     console.log(error);
@@ -13,9 +13,9 @@ const order = dbConnect => {
         });
     }
 
-    const getOrderMetaDetails = (id) =>{
+    const getOrderMetaDetails = id =>{
         return new Promise((resolve, reject) => {
-            const query = `SELECT table_no,customer_name,customer_mobile FROM order WHERE id=${dbConnect.escape(id)}`;
+            const query = `SELECT table_no,customer_name,customer_mobile FROM order_meta WHERE id=${dbConnect.escape(id)}`;
             dbConnect.query(query,(error, results, _fields) => {
                 if (error) {
                     console.log(error);
@@ -28,7 +28,7 @@ const order = dbConnect => {
     }
     
     
-    const getOrderItemDetails = (id) =>{
+    const getOrderItemDetails = id =>{
         return new Promise((resolve, reject) => {
             const query = `SELECT order_items.item_id,order_items.quantity,item.name,item.price,item.description 
             FROM  order_items 
@@ -45,9 +45,26 @@ const order = dbConnect => {
         });
     }
 
+    const getInvoice = id =>{
+        return new Promise((resolve, reject) => {
+            const query = `SELECT table_no,customer_name,customer_mobile FROM order_meta WHERE id=${dbConnect.escape(id)}`;
+            dbConnect.query(query,(error, results, _fields) => {
+                if (error) {
+                    console.log(error);
+                    reject('Failed');
+                    return;
+                }
+                resolve(results);
+            });
+        });
+    }
+
     return {
        
         getAllOrders,
-        getOrderDetails
+        getOrderMetaDetails,
+        getOrderItemDetails
     };
 }
+
+module.exports = order;
