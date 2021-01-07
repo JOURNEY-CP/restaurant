@@ -22,7 +22,7 @@ const order = dbConnect => {
                     reject('Failed');
                     return;
                 }
-                resolve(results);
+                resolve(results[0]);
             });
         });
     }
@@ -45,26 +45,12 @@ const order = dbConnect => {
         });
     }
 
-    const getInvoice = id =>{
-        return new Promise((resolve, reject) => {
-            const query = `SELECT table_no,customer_name,customer_mobile FROM order_meta WHERE id=${dbConnect.escape(id)}`;
-            dbConnect.query(query,(error, results, _fields) => {
-                if (error) {
-                    console.log(error);
-                    reject('Failed');
-                    return;
-                }
-                resolve(results);
-            });
-        });
-    }
-
     return {
        
         getAllOrders,
         getOrderMetaDetails,
-        getOrderItemDetails,
-        getInvoice
+        getOrderItemDetails
+        
     };
 }
 

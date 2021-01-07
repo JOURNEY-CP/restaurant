@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var itemDb=require('../../../db/item');
-var random=require('../../../util/random');
+const {randomId}=require('../../../util/random');
 let itemDbConnect;
 
 const adminItemRouter = DBConnect => {
@@ -12,10 +12,10 @@ const adminItemRouter = DBConnect => {
   
   router.post('/',(req,res)=>{
       const {name,price,description}=req.body;
-      const id=random.randomId;
+      const id=randomId(12);
       itemDbConnect.
         addAllItems(id,name,price,description)
-        .then(data=>res.status(200).send(data))
+        .then(()=>res.status(200).send({id}))
         .catch(err=>res.status(500).send(err));
     });
      
