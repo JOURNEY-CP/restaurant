@@ -1,6 +1,6 @@
 const item = dbConnect => {
 
-    const AddAllItems= (id,name,price,description) =>{
+    const addAllItems= (id,name,price,description) =>{
         return new Promise((resolve, reject) => {
             const query = `INSERT INTO item 
             (id,name,price,description) VALUES (
@@ -35,7 +35,7 @@ const item = dbConnect => {
     }
 
     return {
-        AddAllItems,
+        addAllItems,
         getAllItems
     };
 }

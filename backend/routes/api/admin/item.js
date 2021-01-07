@@ -13,7 +13,7 @@ const adminItemRouter = DBConnect => {
       const {name,price,description}=req.body;
       const id=name;
       itemDbConnect.
-        AddAllItems(id,name,price,description)
+        addAllItems(id,name,price,description)
         .then(data=>res.status(200).send(data))
         .catch(err=>res.status(500).send(err));
     });
