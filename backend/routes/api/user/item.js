@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var itemDb=require('../../db/item');
+var itemDb=require('../../../db/item');
 let itemDbConnect;
 
 const itemRouter = DBConnect => {

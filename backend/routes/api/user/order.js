@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var orderDb=require('../../db/order');
-const {randomId}=require('../../util/random');
+var orderDb=require('../../../db/order');
+const {randomId}=require('../../../util/random');
 let orderDbConnect;
 
 
