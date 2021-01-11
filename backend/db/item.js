@@ -1,3 +1,4 @@
+const {randomId}=require('../util/random');
 const item = dbConnect => {
 
     const addAllItems= (id,name,price,description) =>{
@@ -49,11 +50,12 @@ const item = dbConnect => {
             });
         });
     }
-
+   
     const addItemFeedback= (item_id,feedback,rating) =>{
+        const id=randomId(12);
         return new Promise((resolve, reject) => {
             const query = `INSERT INTO item_feedback(id,item_id,feedback,rating) VALUES
-            (${dbConnect.escape(item_id)},
+            (${dbConnect.escape(id)},
              ${dbConnect.escape(item_id)},
              ${dbConnect.escape(feedback)},
              ${dbConnect.escape(rating)})`;

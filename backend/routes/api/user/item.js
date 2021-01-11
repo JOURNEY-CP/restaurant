@@ -26,8 +26,8 @@ router.get('/',(req,res)=>{
 
 
  router.post('/:item_id/feedback',(req,res)=>{
-  //  res.status(200).send("Hi");
-  //  return ;
+//     res.status(200).send("Hi");
+//    return ;
   const item_id=req.params.item_id;
    itemDbConnect.
      addItemFeedback(item_id,req.body.feedback,req.body.rating)
