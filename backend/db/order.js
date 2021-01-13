@@ -77,11 +77,11 @@ const order = dbConnect => {
                         reject('Failed2');
                         return;
                     }
-                resolve();
+                    resolve();
+                });
             });
-        });
-    }
-        )}
+        }
+    )}
 
     return {
         getAllOrders,
