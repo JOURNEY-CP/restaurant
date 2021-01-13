@@ -34,3 +34,4 @@ CREATE TABLE order_item(
     FOREIGN KEY(order_id) REFERENCES order_meta(id),
     FOREIGN KEY(item_id) REFERENCES item(id)
 );
+
