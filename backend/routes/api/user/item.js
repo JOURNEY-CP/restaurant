@@ -31,7 +31,7 @@ router.get('/',(req,res)=>{
   const item_id=req.params.item_id;
    itemDbConnect.
      addItemFeedback(item_id,req.body.feedback,req.body.rating)
-     .then(data=>res.status(200).send(data))
+     .then(id=>res.status(200).send({id}))
      .catch(err=>res.status(500).send(err));
 });
 

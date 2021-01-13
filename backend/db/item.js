@@ -65,7 +65,7 @@ const item = dbConnect => {
                     reject('Failed');
                     return;
                 }
-                resolve();
+                resolve(id);
             });
         });
     }
