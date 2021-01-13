@@ -3,13 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const dotenv = require('dotenv');
+dotenv.config();
 // db connection SQL
 var mysql = require('mysql')
 var DBConnect = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'restaurant'
+  host: process.env.HOST_NAME,
+  user: process.env.USER_NAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE_NAME
 })
 DBConnect.connect()
 //db connection end
