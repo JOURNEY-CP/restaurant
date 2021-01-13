@@ -1,5 +1,5 @@
 const arrayOfObjectsToSqlObjects= (dbConnect,arrayItems) =>{
-    var result           = '';
+    var result = '';
     var flag=0,mainflag=0;
     arrayItems.forEach( item =>{
         flag=0;
