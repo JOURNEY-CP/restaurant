@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <Header/>
       <TopAppBarFixedAdjust>
+      <div class="app-main-area">
         <Router>
           <Switch>
             <Route exact path={'/'} component={Home}/>
@@ -20,6 +21,7 @@ function App() {
             <Route path="*" component={NotFound} /> 
           </Switch>
         </Router>
+      </div>
       </TopAppBarFixedAdjust>
       <Footer/>
     </div>
