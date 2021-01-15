@@ -22,7 +22,6 @@ class Home extends Component {
             <br/>
                 <TextField
                     label='Name'
-                    helperText={<HelperText>Enter Your Full Name</HelperText>}
                     onTrailingIconSelect={() => this.setState({value: ''})}
                     leadingIcon={<MaterialIcon icon="account_circle"/>}
                 >
@@ -32,9 +31,10 @@ class Home extends Component {
                         onChange={(e) => this.setState({name: e.currentTarget.value})} 
                     />
                 </TextField>
+                <br/>
+                <br/>
                 <TextField
                     label='Mobile Number'
-                    helperText={<HelperText>Enter Your Mobile Number</HelperText>}
                     onTrailingIconSelect={() => this.setState({value: ''})}
                     leadingIcon={<MaterialIcon icon="call"/>}
                 >
@@ -44,10 +44,11 @@ class Home extends Component {
                         onChange={(e) => this.setState({mobile: e.currentTarget.value})} 
                     />
                 </TextField>
+                <br/>
+                <br/>
                 <TextField
                     label='Table Number'
                     id="table"
-                    helperText={<HelperText>Enter Table Number</HelperText>}
                     leadingIcon={<MaterialIcon icon="restaurant_menu"/>}
                 >
                     <Input
@@ -55,9 +56,12 @@ class Home extends Component {
                         onChange={(e) => this.setState({tableNo: e.currentTarget.value})} 
                     />
                 </TextField>
-                <Button
+                <br/>
+                <br/>
+                
+                <Button 
+                    href="/items"
                     icon={<MaterialIcon icon="restaurant"/>}
-                    onClick={()=>{alert(this.state.name+this.state.tableNo)}}
                     raised
                 >
                     Start Ordering

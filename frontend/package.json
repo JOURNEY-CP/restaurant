@@ -8,6 +8,7 @@
     "@material/icon-button": "^9.0.0",
     "@material/react-button": "^0.15.0",
     "@material/react-card": "^0.15.0",
+    "@material/react-list": "^0.15.0",
     "@material/react-material-icon": "^0.15.0",
     "@material/react-text-field": "^0.15.0",
     "@material/react-top-app-bar": "^0.15.0",

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './Header.css';
 import TopAppBar, { 
     TopAppBarIcon,
     TopAppBarRow,
