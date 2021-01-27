@@ -5,13 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
+const cors = require('cors');
 // db connection SQL
 var mysql = require('mysql')
 var DBConnect = mysql.createConnection({
   host: process.env.HOST_NAME,
   user: process.env.USER_NAME,
   password: process.env.PASSWORD,
-  database: process.env.DATABASE_NAME
+  database: process.env.DATABASE
 })
 DBConnect.connect()
 //db connection end
@@ -28,6 +29,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

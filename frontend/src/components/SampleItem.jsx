@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import { useParams } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -18,7 +19,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+ 
   },
   media: {
     height: 0,
@@ -41,37 +42,57 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SampleItem() {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [item,modifyItem] = useState({id:"",name:"",price:"",description:""});
+  const id=useParams().item_id;
+  console.log(id);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  useEffect(() => {
+    fetch(
+      `http://localhost:4000/api/user/item/${id}`,
+      {
+        method: "GET",
+        // headers: new Headers({
+        //   Accept: "application/vnd.github.cloak-preview"
+        // })
+      }
+    )
+      .then(res => res.json())
+      .then(response => {
+        //console.log(response)
+        modifyItem(response)
+      })
+      .catch(error => console.log(error));
+  },[] );
+console.log(item);
   return (
     <Card className={classes.root}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
+      
       <CardMedia
         className={classes.media}
         image="/images/recipe.jpg"
         title="Paella dish"
       />
+      <CardHeader
+        // avatar={
+        //   <Avatar aria-label="recipe" className={classes.avatar}>
+        //     R
+        //   </Avatar>
+        // }
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
+        title={item.name}
+        subheader="September 14, 2016"
+      />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          PRICE : {item.price}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -94,12 +115,11 @@ export default function SampleItem() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>Description:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
+            {item.description}
           </Typography>
-          <Typography paragraph>
+          {/* <Typography paragraph>
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
             heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
             browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
@@ -116,7 +136,7 @@ export default function SampleItem() {
           </Typography>
           <Typography>
             Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
+          </Typography> */}
         </CardContent>
       </Collapse>
     </Card>

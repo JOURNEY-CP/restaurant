@@ -18,7 +18,8 @@
 }
 @media only screen and (max-width: 600px) {
   .app-main-area{
-    width:100%;
+    width:calc(100% - 20px);
+    margin:10px;
     position: relative;
     left: 0%;
     background-color: white;
