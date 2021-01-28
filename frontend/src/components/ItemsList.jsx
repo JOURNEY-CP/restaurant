@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense } from 'react'
+import SampleItem from './SampleItem';
+import Spinner from './Spinner';
 import '@material/react-list/dist/list.css';
 import MaterialIcon from '@material/react-material-icon';
 import List, {ListItem, ListItemText} from '@material/react-list';
-import SampleItem from './SampleItem';
 import { Button } from '@material/react-button';
 const axios=require('axios').default;
 const dotenv = require('dotenv');
@@ -17,9 +18,10 @@ class ItemsList extends Component {
   
     async componentDidMount(){
         setTimeout(function() { //Start the timer
-         this.setState({render: true}) //After 1 second, set render to true
+         this.setState({render:true})//After 1 second, set render to true
      }.bind(this), 1000)
      console.log(process.env.REACT_APP_BACKEND_HOST);
+     //this.setState({loading:true})
        const res =await axios.get(`http://localhost:4000/api/user/item`)
        this.state.items=await res.data;
        console.log(this.state.items);
@@ -35,12 +37,13 @@ class ItemsList extends Component {
         ))
      )
     render() {
+        const loading=this.state.loading
         return (
-            <div>
-                 <List twoLine>
-                   <this.itemList/>
-                </List>
-            </div>
+                <div>
+                    <List twoLine>
+                        <this.itemList/>
+                    </List>
+                </div>  
         )
     }
 }

@@ -28,7 +28,7 @@ class Header extends Component {
                         <MaterialIcon 
                             aria-label="print page" 
                             hasRipple 
-                            icon='search' 
+                            icon='shopping_cart' 
                             onClick={() => console.log('print')}
                         />
                         </TopAppBarIcon>

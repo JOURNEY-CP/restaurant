@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import './styles.css';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -44,12 +45,15 @@ export default function SampleItem() {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [item,modifyItem] = useState({id:"",name:"",price:"",description:""});
+  const [servings,updateServings]=useState(1);
   const id=useParams().item_id;
   console.log(id);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  
   useEffect(() => {
     fetch(
       `http://localhost:4000/api/user/item/${id}`,
@@ -69,14 +73,15 @@ export default function SampleItem() {
   },[] );
 console.log(item);
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} id="recipe">
       
       <CardMedia
-        className={classes.media}
+        className={classes.media} id="recipe__fig"
+        
         image="/images/recipe.jpg"
-        title="Paella dish"
+        title={item.name}
       />
-      <CardHeader
+      <CardHeader className="recipe__title" 
         // avatar={
         //   <Avatar aria-label="recipe" className={classes.avatar}>
         //     R
@@ -87,21 +92,58 @@ console.log(item);
         //     <MoreVertIcon />
         //   </IconButton>
         // }
+        
         title={item.name}
-        subheader="September 14, 2016"
+        
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+      <Typography variant="h5" component="h2">
           PRICE : {item.price}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+      <CardActions disableSpacing className="recipe__info">
+        {/* <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
+      {/* <div className="recipe-info"> */}
+          <svg className="recipe__info-icon">
+              <use href="/images/icons.svg#icon-man"></use>
+          </svg>
+          <span className="recipe__info-data recipe__info-data--people">{servings}</span>
+          <span className="recipe__info-text"> SERVINGS</span>
+{/* 
+          <div class="recipe__info-buttons"> */}
+          <CardActions disableSpacing className="recipe__info-buttons">
+              <button className="btn-tiny btn-decrease"  onClick={()=>updateServings(servings-1)}>
+                  <svg>
+                      <use href="/images/icons.svg#icon-circle-with-minus"></use>
+                  </svg>
+              </button>
+              <button className="btn-tiny btn-increase" onClick={()=>updateServings(servings+1)}>
+                  <svg>
+                      <use href="/images/icons.svg#icon-circle-with-plus"></use>
+                  </svg>
+              </button>
+          </CardActions>
+          {/* <button className="recipe__love">
+            <svg className="header__likes">
+                <use href="/images/icons.svg#icon-heart"></use>
+            </svg>
+            
+        </button> */}
+
+        <button class="btn-small recipe__btn recipe__btn recipe__btn--add">
+            <svg class="search__icon">
+                <use href="/images/icons.svg#icon-shopping-cart"></use>
+            </svg>
+            <span>Add to cart</span>
+        </button>
+          {/* </div> */}
+      {/* </div> */}
+        
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
