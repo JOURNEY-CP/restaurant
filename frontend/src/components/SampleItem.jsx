@@ -52,7 +52,12 @@ export default function SampleItem() {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const handleServings = () =>{
+    if(servings>1){
+      updateServings(servings-1);
+    }
+    
+  }
   
   useEffect(() => {
     fetch(
@@ -117,7 +122,7 @@ console.log(item);
 {/* 
           <div class="recipe__info-buttons"> */}
           <CardActions disableSpacing className="recipe__info-buttons">
-              <button className="btn-tiny btn-decrease"  onClick={()=>updateServings(servings-1)}>
+              <button className="btn-tiny btn-decrease"  onClick={handleServings}>
                   <svg>
                       <use href="/images/icons.svg#icon-circle-with-minus"></use>
                   </svg>
