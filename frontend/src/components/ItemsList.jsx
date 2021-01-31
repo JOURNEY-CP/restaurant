@@ -1,11 +1,7 @@
-import React, { Component, Suspense } from 'react'
+import React, { Component} from 'react'
 import connect from 'react-redux/es/connect/connect';
-import SampleItem from './SampleItem';
-import Spinner from './Spinner';
 import '@material/react-list/dist/list.css';
-import MaterialIcon from '@material/react-material-icon';
 import List, {ListItem, ListItemText} from '@material/react-list';
-import { Button } from '@material/react-button';
 import {onGetItemList} from '../redux/actions/items';
 const axios=require('axios').default;
 const dotenv = require('dotenv');
@@ -20,8 +16,7 @@ class ItemsList extends Component {
         setTimeout(function() { //Start the timer
          this.setState({render:true})//After 1 second, set render to true
      }.bind(this), 1000)
-     console.log(process.env.REACT_APP_BACKEND_HOST);
-     //this.setState({loading:true})
+    //  console.log(process.env.REACT_APP_BACKEND_HOST);
        const res =await axios.get(`http://localhost:4000/api/user/item`)
        this.props.onGetItemList(await res.data)
     }
@@ -38,7 +33,6 @@ class ItemsList extends Component {
             ):(<div/>)
     )
     render() {
-        const loading=this.state.loading
         return (
                 <div>
                     <List twoLine>

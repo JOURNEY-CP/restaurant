@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import connect from 'react-redux/es/connect/connect';
 import './styles.css';
+import {onAddItemToCart} from '../redux/actions/cart';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -9,14 +11,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,18 +40,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SampleItem() {
+function SampleItem(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [item,modifyItem] = useState({id:"",name:"",price:"",description:""});
-  const [servings,updateServings]=useState(1);
+  const [item,modifyItem] = useState({id:"",name:"",price:"",description:"",quantity:1});
   const id=useParams().item_id;
-  console.log(id);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const handleServings = (val) =>{
+    const servings=item.quantity+val;
+    if(servings>=1)
+    modifyItem({...item,"quantity":servings});
+  }
   
   useEffect(() => {
     fetch(
@@ -67,14 +68,16 @@ export default function SampleItem() {
       .then(res => res.json())
       .then(response => {
         //console.log(response)
-        modifyItem(response)
+        
+        modifyItem({...response,"quantity":1})
+
       })
       .catch(error => console.log(error));
-  },[] );
-console.log(item);
+  },[id] );
   return (
+    
     <Card className={classes.root} id="recipe">
-      
+      <Link to="/items">View all items</Link>
       <CardMedia
         className={classes.media} id="recipe__fig"
         
@@ -112,17 +115,17 @@ console.log(item);
           <svg className="recipe__info-icon">
               <use href="/images/icons.svg#icon-man"></use>
           </svg>
-          <span className="recipe__info-data recipe__info-data--people">{servings}</span>
+          <span className="recipe__info-data recipe__info-data--people">{item.quantity}</span>
           <span className="recipe__info-text"> SERVINGS</span>
 {/* 
           <div class="recipe__info-buttons"> */}
           <CardActions disableSpacing className="recipe__info-buttons">
-              <button className="btn-tiny btn-decrease"  onClick={()=>updateServings(servings-1)}>
+              <button className="btn-tiny btn-decrease"  onClick={()=>{handleServings(-1)}}>
                   <svg>
                       <use href="/images/icons.svg#icon-circle-with-minus"></use>
                   </svg>
               </button>
-              <button className="btn-tiny btn-increase" onClick={()=>updateServings(servings+1)}>
+              <button className="btn-tiny btn-increase"  onClick={()=>{handleServings(1)}}>
                   <svg>
                       <use href="/images/icons.svg#icon-circle-with-plus"></use>
                   </svg>
@@ -135,7 +138,7 @@ console.log(item);
             
         </button> */}
 
-        <button class="btn-small recipe__btn recipe__btn recipe__btn--add">
+        <button class="btn-small recipe__btn recipe__btn recipe__btn--add" onClick={()=>props.onAddItemToCart(item)}>
             <svg class="search__icon">
                 <use href="/images/icons.svg#icon-shopping-cart"></use>
             </svg>
@@ -184,3 +187,14 @@ console.log(item);
     </Card>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+      order: state.cart.order,
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  onAddItemToCart: data => dispatch(onAddItemToCart(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SampleItem);
