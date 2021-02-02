@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
-import { Redirect, Route } from 'react-router-dom';
+import React from 'react';
+import { Route } from 'react-router-dom';
 
 import connect from 'react-redux/es/connect/connect';
+import Login from './Login';
 
 class PrivateRoute extends React.Component {
     constructor(props) {
-        super(props)
-    
-        this.state = {
-            component: this.props.Component, 
-        } 
+        super(props);
+        this.state = {};
     }
 
-    render(){
-        const {rest,access}=this.props;
-        return (
-            <Route
-                {...rest}
-                render={(props) => access === 'admin' && this.props.status
-                ? <Component {...props} />
-                : <Redirect to={{pathname: '/login', state: {from: props.location}}} />}
-            />
-        )   
-    }
-};
+    getComponet = (access, status) => {
+        const { component, history, location } = this.props;
+        // console.log(this.props);
+        if (access === 'admin' && status) {
+            return component;
+        }
+        return () => <Login history={history} prevLocation={location} />;
+    };
 
-const mapStateToProps = state => {
+    render() {
+        const { rest, access, status } = this.props;
+        return <Route {...rest} component={this.getComponet(access, status)} />;
+    }
+}
+
+const mapStateToProps = (state) => {
     return {
         status: state.auth.status,
     };
 };
 
-export default connect(mapStateToProps,null)(PrivateRoute);
+export default connect(mapStateToProps, null)(PrivateRoute);
