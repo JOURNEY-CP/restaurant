@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import sampleReducer from './sample';
+import metaDataReducer from './metaData';
 import itemsReducer from './items';
 import cartReducer from './cart';
 
 const rootReducer = combineReducers({
-    sample: sampleReducer,
+    metaData: metaDataReducer,
     items: itemsReducer,
     cart: cartReducer
 });

@@ -17,7 +17,7 @@ class ItemsList extends Component {
          this.setState({render:true})//After 1 second, set render to true
      }.bind(this), 1000)
     //  console.log(process.env.REACT_APP_BACKEND_HOST);
-       const res =await axios.get(`http://localhost:4000/api/user/item`)
+       const res =await axios.get(`/api/user/item`)
        this.props.onGetItemList(await res.data)
     }
     itemList = () =>(

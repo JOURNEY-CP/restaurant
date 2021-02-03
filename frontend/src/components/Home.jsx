@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
+import connect from 'react-redux/es/connect/connect';
+import {onGetCustomerMetaData} from '../redux/actions/metaData';
 import TextField, {Input} from '@material/react-text-field';
 import MaterialIcon from '@material/react-material-icon';
 import '@material/react-material-icon/dist/material-icon.css';
 import '@material/react-text-field/dist/text-field.css';
 import '@material/react-button/dist/button.css';
 import Button from '@material/react-button';
+import { Redirect } from 'react-router-dom';
 
 class Home extends Component {
     constructor(props){
@@ -14,6 +17,10 @@ class Home extends Component {
             tableNo:'',
             mobile:'',
         };
+    }
+    handleMetaData = ()=>{
+        this.props.onGetCustomerMetaData(this.state);
+        this.props.history.push("/items");
     }
 
     render() {
@@ -60,9 +67,9 @@ class Home extends Component {
                 <br/>
                 
                 <Button 
-                    href="/items"
                     icon={<MaterialIcon icon="restaurant"/>}
                     raised
+                    onClick={this.handleMetaData}
                 >
                     Start Ordering
                 </Button>
@@ -71,4 +78,13 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => {
+    return {
+        customerMetaData: state.metaData.customerMetaData,
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    onGetCustomerMetaData: data => dispatch(onGetCustomerMetaData(data)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
