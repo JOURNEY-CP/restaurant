@@ -29,5 +29,5 @@ jobs:
         HEROKU_BACKEND_APP_NAME: ${{ secrets.HEROKU_BACKEND_APP_NAME }}
       if: github.ref == 'refs/heads/master' && job.status == 'success'
       run: |
-           heroku git:remote -a $HEROKU_BACKEND_APP_NAME
+           heroku git:remote -a ${HEROKU_BACKEND_APP_NAME}
            git subtree push --prefix backend heroku master
