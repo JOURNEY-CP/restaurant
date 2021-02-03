@@ -20,7 +20,7 @@ router.post('/',(req,res)=>{
      var item_list_modified=[];
       item_list.forEach(item=>{
          // item={order_id:id,...item}
-         item_list_modified.push({order_id:id,...item})
+         item_list_modified.push({order_id:id,item_id:item.id,quantity:item.quantity})
       })
      
       console.log(item_list_modified);
