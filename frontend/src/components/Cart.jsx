@@ -4,6 +4,8 @@ import {onUpdateItemQuantity} from '../redux/actions/cart';
 import { Link } from 'react-router-dom';
 import './Cart.css';
 const axios=require('axios').default;
+const dotenv = require('dotenv');
+dotenv.config();
 class Cart extends Component {
     constructor(props) {
         super(props)
@@ -16,7 +18,7 @@ class Cart extends Component {
 
     placeOrder = () =>{
         if(this.props.customerMetaData){
-            axios.post(`http://localhost:4000/api/user/order`,{
+            axios.post(`${process.env.REACT_APP_BACKEND_HOST}/api/user/order`,{
                 customer_mobile:this.props.customerMetaData.mobile,
                 customer_name:this.props.customerMetaData.name,
                 table_no:this.props.customerMetaData.tableNo,
@@ -92,7 +94,9 @@ class Cart extends Component {
     render() {
         console.log(this.props.customerMetaData);
         return (
+            
             <div className="cart"> 
+                 <Link to="/items">View all items</Link>
                 <h1>Cart</h1> 
                 <h3>{this.props.order.length} items in Cart</h3>
                 <this.addToCart/>
