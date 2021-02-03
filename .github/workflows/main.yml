@@ -5,25 +5,18 @@ on:
       - master
 
 jobs:
-   build:
+  login:
     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         os: [ubuntu-latest, windows-latest, macOS-latest]
-
     steps:
     - uses: actions/checkout@master
     - name: Login to Heroku 
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login 
-#     - name: Build and push frontend
-#       env:
-#         HEROKU_FRONTEND_APP_NAME: ${{ secrets.HEROKU_FRONTEND_APP_NAME }}
-#       if: github.ref == 'refs/heads/master' && job.status == 'success'
-#       run: |
-#            heroku git:remote -a $HEROKU_FRONTEND_APP_NAME
-#            git subtree push --prefix frontend heroku master
+  pushbackend:
+    needs: login
+    runs-on: ubuntu-latest
+    steps:
     - name: Build and push backend
       env:
         HEROKU_BACKEND_APP_NAME: ${{ secrets.HEROKU_BACKEND_APP_NAME }}
