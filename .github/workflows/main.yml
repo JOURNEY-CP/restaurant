@@ -24,8 +24,6 @@ jobs:
       env:
         EMAIL: ${{secrets.EMAIL_ORG}}
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-    - name: pull from heroku
-      run: git subtree pull --prefix backend heroku master
     - name: Build and push
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
