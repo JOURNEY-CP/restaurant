@@ -20,7 +20,7 @@ router.get('/',(req,res)=>{
    const item_id=req.params.item_id;
     itemDbConnect.
       getItemDetails(item_id)
-      .then(data=>res.status(200).send(data))
+      .then(data=>res.status(200).send(data[0]))
       .catch(err=>res.status(500).send(err));
  });
 
