@@ -18,10 +18,10 @@ function App() {
       <div className="app-main-area">
        
           <Switch>
-            <Route exact path={'/'} component={Home}/>
-            <Route exact path={'/items'} component={ItemsList}/>
-            <Route exact path={'/items/:item_id'} component={SampleItem}/>
-            <Route exact path={'/cart'} component={Cart}/>
+            <Route exact path={process.env.HOMEPAGE+'/'} component={Home}/>
+            <Route exact path={process.env.HOMEPAGE+'/items'} component={ItemsList}/>
+            <Route exact path={process.env.HOMEPAGE+'/items/:item_id'} component={SampleItem}/>
+            <Route exact path={process.env.HOMEPAGE+'/cart'} component={Cart}/>
             <Route path="*" component={NotFound} /> 
           </Switch>
       </div>
