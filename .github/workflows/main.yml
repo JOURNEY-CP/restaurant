@@ -11,7 +11,7 @@ jobs:
     - name: Login to Heroku 
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:login 
+      run: heroku login 
     - name: add remote
       run: git remote add heroku https://git.heroku.com/restaurant-journey.git
     - name: Build and push
