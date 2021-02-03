@@ -16,28 +16,3 @@ jobs:
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: git subtree push --prefix backend heroku master
-    - name: Release
-  pushbackend:
-    needs: login
-    runs-on: ubuntu-latest
-    steps:
-    - name: Build and push backend
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:release -a ${{ secrets.HEROKU_BACKEND_APP_NAME }} web 
-#   pushbackend:
-#     needs: login
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Build and push backend
-#       env:
-#         HEROKU_BACKEND_APP_NAME: ${{ secrets.HEROKU_BACKEND_APP_NAME }}
-#       if: github.ref == 'refs/heads/master' && job.status == 'success'
-#       run: |
-#            heroku git:remote -a $HEROKU_BACKEND_APP_NAME
-#            git subtree push --prefix backend heroku master
-#         HEROKU_BACKEND_APP_NAME: ${{ secrets.HEROKU_BACKEND_APP_NAME }}
-#       if: github.ref == 'refs/heads/master' && job.status == 'success'
-#       run: |
-#            git remote add heroku https://git.heroku.com/restaurant-journey.git
-#            git subtree push --prefix backend heroku master
