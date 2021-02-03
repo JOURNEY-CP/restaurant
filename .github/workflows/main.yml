@@ -13,7 +13,9 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login 
     - name: add remote
-      run: git remote add heroku https://git.heroku.com/restaurant-journey.git
+      run: git remote add heroku https://git.heroku.com/${HEROKU_BACKEND_APP_NAME}.git
+      env:
+        HEROKU_BACKEND_APP_NAME: ${{secrets.HEROKU_BACKEND_APP_NAME}}
     - name: login heroku 
       run: echo -e "machine api.heroku.com\n\tlogin ${EMAIL}\n\tpassword ${HEROKU_API_KEY}\nmachine git.heroku.com\n\tlogin ${EMAIL}\n\tpassword ${HEROKU_API_KEY}">~/.netrc
       env:
