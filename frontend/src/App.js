@@ -15,17 +15,17 @@ function App() {
   console.log(process.env.REACT_APP_HOMEPAGE+'/');
   return (
     <div className="App">
-     <Router>
+     <Router basename={process.env.PUBLIC_URL}>
       <Header/>
       <TopAppBarFixedAdjust>
       <br/>
       <div className="app-main-area">
        
           <Switch>
-            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/'} component={Home}/>
-            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/items'} component={ItemsList}/>
-            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/items/:item_id'} component={SampleItem}/>
-            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/cart'} component={Cart}/>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/items' component={ItemsList}/>
+            <Route exact path='/items/:item_id' component={SampleItem}/>
+            <Route exact path='/cart' component={Cart}/>
             <Route path="*" component={NotFound} /> 
           </Switch>
       </div>
