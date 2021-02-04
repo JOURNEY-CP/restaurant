@@ -1,8 +1,6 @@
 name: Publish To Heroku 
 description: Action to publish code with heroku
-branding:
-    icon: 'cpu'
-    color: 'blue'
+
 on:
   push:
     branches:
