@@ -4,27 +4,41 @@ on:
     branches:
       - master
 jobs:
-  login:
+  login-heroku:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Login to Heroku 
-      env: 
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:login 
-    - name: add remote
-      run: git remote add heroku https://git.heroku.com/${HEROKU_BACKEND_APP_NAME}.git
-      env:
-        HEROKU_BACKEND_APP_NAME: ${{secrets.HEROKU_BACKEND_APP_NAME}}
     - name: login heroku 
       run: echo -e "machine api.heroku.com\n\tlogin ${EMAIL}\n\tpassword ${HEROKU_API_KEY}\nmachine git.heroku.com\n\tlogin ${EMAIL}\n\tpassword ${HEROKU_API_KEY}">~/.netrc
       env:
         EMAIL: ${{secrets.EMAIL_ORG}}
         HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
-    - name: Build and push
+  backend-heroku:
+    needs: login
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: add remote
+      run: git remote add herokuback https://git.heroku.com/${HEROKU_BACKEND_APP_NAME}.git
       env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: git push heroku `git subtree split --prefix backend master`:master --force
+        HEROKU_BACKEND_APP_NAME: ${{secrets.HEROKU_BACKEND_APP_NAME}}
+    - name: push
+      run: git push herokuback `git subtree split --prefix backend master`:master --force
+  frontend-heroku:
+    needs: login
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: add frontend remote
+      run: git remote add herokufront https://git.heroku.com/${HEROKU_FRONTEND_APP_NAME}.git
+      env:
+        HEROKU_FRONTEND_APP_NAME: ${{secrets.HEROKU_FRONTEND_APP_NAME}}
+    - name: push
+      run: git push herokufront `git subtree split --prefix frontend master`:master --force
+  frontend-github:
+    needs: login
+    runs-on: ubuntu-latest
+    steps:
     - name: Frontend install
       run: npm ci --prefix frontend
     - name: Github Pages Deploy
