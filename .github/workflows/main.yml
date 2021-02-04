@@ -41,6 +41,6 @@ jobs:
     - name: Frontend install
       run: npm install --prefix frontend
     - name: Github Pages Deploy
-      run: npm run deploy --frontend 
+      run: npm run deploy --prefix frontend 
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
