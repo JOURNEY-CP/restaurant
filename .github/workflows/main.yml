@@ -7,4 +7,4 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: JOURNEY-CP/journey-publish-heroku
+    - uses: JOURNEY-CP/journey-publish-heroku@master
