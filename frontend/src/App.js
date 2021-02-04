@@ -15,7 +15,7 @@ function App() {
   console.log(process.env.REACT_APP_HOMEPAGE+'/');
   return (
     <div className="App">
-     <Router basename={process.env.PUBLIC_URL}>
+     <Router basename={process.env.REACT_APP_HOMEPAGE}>
       <Header/>
       <TopAppBarFixedAdjust>
       <br/>
