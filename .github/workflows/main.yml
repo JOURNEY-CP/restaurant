@@ -37,10 +37,13 @@ jobs:
       run: git push herokufront `git subtree split --prefix frontend master`:master --force
   frontend-github:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
     - name: Frontend install
-      run: npm install --prefix frontend
+      run: npm install
     - name: Github Pages Deploy
-      run: npm run deploy --prefix frontend 
+      run: npm run deploy
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
