@@ -20,6 +20,7 @@ jobs:
     - name: push
       run: git push herokuback `git subtree split --prefix backend master`:master --force
   frontend-heroku:
+    needs: backend-heroku
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
