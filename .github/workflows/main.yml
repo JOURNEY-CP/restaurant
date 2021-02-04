@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Frontend install
-      run: npm ci --prefix frontend
+      run: npm install --prefix frontend
     - name: Github Pages Deploy
       run: cd frontend ; npm run deploy 
       env:
