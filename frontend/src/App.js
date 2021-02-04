@@ -8,6 +8,8 @@ import {TopAppBarFixedAdjust} from '@material/react-top-app-bar';
 import ItemsList from './components/ItemsList';
 import SampleItem from './components/SampleItem';
 import Cart from './components/Cart';
+import dotenv from 'dotenv';
+dotenv.config();
 function App() {
   return (
     <div className="App">

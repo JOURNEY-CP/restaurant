@@ -35,12 +35,12 @@ jobs:
         HEROKU_FRONTEND_APP_NAME: ${{secrets.HEROKU_FRONTEND_APP_NAME}}
     - name: push
       run: git push herokufront `git subtree split --prefix frontend master`:master --force
-  # frontend-github:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Frontend install
-  #     run: npm ci --prefix frontend
-  #   - name: Github Pages Deploy
-  #     run: cd frontend ; npm run deploy 
-  #     env:
-  #       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  frontend-github:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Frontend install
+      run: npm ci --prefix frontend
+    - name: Github Pages Deploy
+      run: cd frontend ; npm run deploy 
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
