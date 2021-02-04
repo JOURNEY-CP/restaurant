@@ -38,6 +38,7 @@ jobs:
   frontend-github:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@master
     - name: Frontend install
       run: npm install
       working-directory: ./frontend
