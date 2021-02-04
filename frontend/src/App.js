@@ -11,7 +11,8 @@ import Cart from './components/Cart';
 import dotenv from 'dotenv';
 dotenv.config();
 function App() {
-  console.log(process.env.HOMEPAGE+'/');
+  console.log(process.env)
+  console.log(process.env.REACT_APP_HOMEPAGE+'/');
   return (
     <div className="App">
      <Router>
@@ -21,10 +22,10 @@ function App() {
       <div className="app-main-area">
        
           <Switch>
-            <Route exact path={process.env.HOMEPAGE+'/'} component={Home}/>
-            <Route exact path={process.env.HOMEPAGE+'/items'} component={ItemsList}/>
-            <Route exact path={process.env.HOMEPAGE+'/items/:item_id'} component={SampleItem}/>
-            <Route exact path={process.env.HOMEPAGE+'/cart'} component={Cart}/>
+            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/'} component={Home}/>
+            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/items'} component={ItemsList}/>
+            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/items/:item_id'} component={SampleItem}/>
+            <Route exact path={process.env.REACT_APP_HOMEPAGE+'/cart'} component={Cart}/>
             <Route path="*" component={NotFound} /> 
           </Switch>
       </div>
