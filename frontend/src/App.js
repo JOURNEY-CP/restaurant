@@ -11,6 +11,7 @@ import Cart from './components/Cart';
 import dotenv from 'dotenv';
 dotenv.config();
 function App() {
+  console.log(process.env.HOMEPAGE+'/');
   return (
     <div className="App">
      <Router>
