@@ -24,7 +24,7 @@ class ItemsList extends Component {
         this.props.items?(
                 this.props.items.map((item)=>(
                 <ListItem key={item.id} onClick={()=>{this.props.history.push(`/items/${item.id}`)}}>
-                    <img src="images/recipe.jpg" alt="r" width="60" height="60" style= {{borderRadius:"100%"}}/>
+                    <img src="/images/recipe.jpg" alt="r" width="60" height="60" style= {{borderRadius:"100%"}}/>
                     <ListItemText
                         primaryText={item.name}
                         secondaryText={item.price} />

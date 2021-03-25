@@ -47,7 +47,7 @@ class Cart extends Component {
                     <div className="cart-item-figure"> 
                     <Link to={`/items/${item.id}`}>
                         <img 
-                            src="images/recipe.jpg" 
+                            src="/images/recipe.jpg" 
                             alt="r" 
                             width="60" 
                             height="60" 

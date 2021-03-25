@@ -1,5 +1,5 @@
-CREATE DATABASE restaurant;
-USE restaurant;
+-- CREATE DATABASE restaurant;
+-- USE restaurant;
 CREATE TABLE item (
     id VARCHAR(16) NOT NULL,
     name VARCHAR(255) NOT NULL,
