@@ -95,7 +95,8 @@ class Cart extends Component {
             ))
         ) : (
             <div />
-        );
+        )
+    )
     
 
     render() {
