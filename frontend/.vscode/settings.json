@@ -1,0 +1,17 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "workbench.editor.highlightModifiedTabs": true,
+    "files.autoSave": "afterDelay",
+    "explorer.sortOrder": "type",
+    "editor.cursorStyle": "block-outline",
+    "editor.acceptSuggestionOnEnter": "smart",
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.validate.enable": true
+}
