@@ -25,6 +25,7 @@ class Cart extends Component {
                     item_list: this.props.order,
                 })
                 .then(function(response) {
+
                     alert('Thanks for Ordering!!');
                 })
                 .catch(function(error) {
@@ -77,6 +78,7 @@ class Cart extends Component {
                                         <use href="/images/icons.svg#icon-circle-with-minus" />
                                     </svg>
                                 </button>
+                                
                                 <button
                                     type="button"
                                     className="btn-tiny btn-increase"
