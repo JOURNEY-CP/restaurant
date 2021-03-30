@@ -34,27 +34,26 @@ class Cart extends Component {
         } else {
             alert('something went wrong!');
         }
-    };
-
-    handleServings = (id, val) => {
-        // console.log(this.props.order);
-        this.props.onUpdateItemQuantity({ id, val });
-    };
-
-    addToCart = () =>
-        this.props.order ? (
-            this.props.order.map(item => (
-                <div className="cart-item" key={item.id}>
-                    <div className="cart-item-figure">
-                        <Link to={`/items/${item.id}`}>
-                            <img
-                                src="images/recipe.jpg"
-                                alt="r"
-                                width="60"
-                                height="60"
-                                style={{ borderRadius: '100%' }}
-                            />
-                        </Link>
+       
+    }
+    handleServings= (id,val) =>{
+        //console.log(this.props.order);
+        this.props.onUpdateItemQuantity({"id":id,"val":val})
+    }
+    addToCart = () =>(
+        this.props.order?(
+            this.props.order.map((item)=>(
+                <div className="cart-item"  key={item.id}>
+                    <div className="cart-item-figure"> 
+                    <Link to={`/items/${item.id}`}>
+                        <img 
+                            src="/images/recipe.jpg" 
+                            alt="r" 
+                            width="60" 
+                            height="60" 
+                            style= {{borderRadius:"100%"}}
+                        />
+                    </Link> 
                     </div>
                     <div className="cart-item-middle">
                         <div className="cart-item-middle-name">{item.name}</div>
@@ -98,7 +97,9 @@ class Cart extends Component {
             ))
         ) : (
             <div />
-        );
+        )
+    )
+    
 
     render() {
         return (
