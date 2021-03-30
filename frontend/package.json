@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://JOURNEY-CP.github.io/restaurant",
   "dependencies": {
+    "@journey-cp/eslint-config": "0.0.5",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
     "@material/icon-button": "^9.0.0",
