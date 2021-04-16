@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import { TopAppBarFixedAdjust } from '@material/react-top-app-bar';
 import dotenv from 'dotenv';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {  Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
@@ -17,9 +17,9 @@ function App() {
     console.log(process.env);
     return (
         <div className="App">
-            <Router>
-                <Header />
-                <TopAppBarFixedAdjust>
+            <div>
+              <Header />
+              <TopAppBarFixedAdjust>
                     <br />
                     <div className="app-main-area">
                         <Switch>
@@ -31,10 +31,13 @@ function App() {
                             <Route path="*" component={NotFound} />
                         </Switch>
                     </div>
-                </TopAppBarFixedAdjust>
-                <Footer />
-            </Router>
-        </div>
+            </TopAppBarFixedAdjust>
+            </div>
+            <div>
+            <Footer />
+            </div>
+            </div>
+       
     );
 }
 

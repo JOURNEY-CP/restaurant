@@ -1,6 +1,14 @@
 .App {
   text-align: center;
-  background-color: aliceblue;
+  background-color: aliceblue; 
+  display: flex;
+  flex-direction:column;  
+  position: relative;
+  text-align: center;
+  justify-content: space-between;
+  /* font-weight: bold; */
+  height: 100vh;
+
 }
 .app-main-area{
   width:50%;
