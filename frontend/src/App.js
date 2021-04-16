@@ -10,7 +10,7 @@ import Header from './components/Header';
 import ItemsList from './components/ItemsList';
 import NotFound from './components/NotFound';
 import Order from './components/Order/Order';
-import SampleItem from './components/SampleItem';
+import Item from './components/Items/Item';
 
 dotenv.config();
 function App() {
@@ -25,7 +25,7 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={ItemsList} />
                             <Route exact path="/items" component={ItemsList} />
-                            <Route exact path="/items/:item_id" component={SampleItem} />
+                            <Route exact path="/items/:item_id" component={Item}/>
                             <Route exact path="/cart" component={Cart} />
                             <Route exact path="/order" component={Order} />
                             <Route path="*" component={NotFound} />

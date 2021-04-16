@@ -50,7 +50,8 @@ btn, .btn-small, .btn-small:link, .btn-small:visited {
       fill: currentColor;
       margin: 0 .2rem; }
     .btn-inline span {
-      margin: 0 .4rem; }
+      margin: 0 .4rem; 
+    }
     .btn-inline:hover {
       color: #F48982;
       background-color: #F2EFEE; }
@@ -111,26 +112,23 @@ btn, .btn-small, .btn-small:link, .btn-small:visited {
                 opacity: 1;
                 transform: translateY(0); }
 
-                #recipe__fig {
+            #recipe__fig {
                     height: 0rem;
                     position: relative;
                     transform: scale(1.04) translateY(-1px);
-                    transform-origin: top; }
-                    #recipe__fig::before {
-                      content: '';
-                      /* display: block; */
-                      height: 100%;
-                      width: 100%;
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
-                      opacity: .6; }
-                  /* .recipe__img {
-                    width: 100%;
-                    display: block;
-                    height: 100%;
-                    object-fit: cover; } */
+                    transform-origin: top; 
+            }
+          #recipe__fig::before {
+            content: '';
+            /* display: block; */
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+            opacity: .6; 
+          }
 
                 .recipe__title {
                     position: absolute;
@@ -149,7 +147,7 @@ btn, .btn-small, .btn-small:link, .btn-small:visited {
                       padding: 1.3rem 2rem;
                       background-image: linear-gradient(to right bottom, #FBDB89, #f48880); }
 
-                      .recipe__love {
+                      /* .recipe__love {
                         background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
                         border-radius: 50%;
                         border: none;
@@ -160,11 +158,7 @@ btn, .btn-small, .btn-small:link, .btn-small:visited {
                         transition: all .2s;
                         display: flex;
                         align-items: center;
-                        justify-content: center; }
-                        .recipe__love:hover {
-                          transform: scale(1.07); }
-                        .recipe__love:focus {
-                          outline: none; }
+                        justify-content: center; } */
                         .recipe__love svg {
                           height: 2.75rem;
                           width: 2.75rem;
