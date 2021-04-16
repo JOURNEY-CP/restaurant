@@ -6,11 +6,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
+           <Router><App /></Router> 
         </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
@@ -20,4 +21,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-serviceWorker.register();
+serviceWorker.unregister();
