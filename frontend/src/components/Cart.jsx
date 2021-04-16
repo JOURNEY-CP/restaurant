@@ -7,7 +7,9 @@ import './globalStyle.css';
 import MyButton from './Util/MyButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import IconButton from '@material-ui/core/IconButton'
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -28,7 +30,7 @@ class Cart extends Component {
     addToCart = () =>(
         this.props.order?(
             this.props.order.map((item)=>(
-                <div className="cart-item"  key={item.id}>
+                <div className="cart-item"  id="item-single" key={item.id}>
                     <div className="cart-item-figure"> 
                     <Link to={`/items/${item.id}`}>
                         <img 
@@ -43,12 +45,12 @@ class Cart extends Component {
                     <div className="cart-item-middle">
                         <div className="cart-item-middle-name">{item.name}</div>
                         <div className="cart-item-middle-quantity">
-                            <div>
+                           {/* <div>
                                 <svg className="cart-item-servings-icon">
                                     <use href="/images/icons.svg#icon-man" />
                                 </svg>
                             </div>
-                            <div className="cart-item-servings-data">
+                             <div className="cart-item-servings-data">
                                 <span className="cart-item-servings-count">{item.quantity}</span>
                                 <span className="cart-item-servings-text"> SERVINGS</span>
                             </div>
@@ -72,8 +74,22 @@ class Cart extends Component {
                                         <use href="/images/icons.svg#icon-circle-with-plus" />
                                     </svg>
                                 </button>
+                            </div>*/}
+                            <div className="item-details-inc-dec-buttons">
+                                <svg className="item-icon-man">
+                                    <use href="/images/icons.svg#icon-man"></use>
+                                </svg>
+                                <span className="item-details-servings">{item.quantity} SERVINGS</span>
+                                <div className="item-inc-dec-buttons">
+                                    <IconButton color="primary" onClick={()=>this.handleServings(item.id,-1)}>
+                                        <RemoveCircleIcon/>
+                                    </IconButton>
+                                    <IconButton color="primary" onClick={()=>this.handleServings(item.id,1)}>
+                                        <AddCircleIcon/>
+                                    </IconButton>
+                                </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <div className="cart-item-price">
                         <h3>{item.price * item.quantity}/-</h3>
