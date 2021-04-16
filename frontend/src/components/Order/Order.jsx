@@ -53,7 +53,7 @@ class Order extends Component {
                 <br/><br/>
                 <TextField id="mobile" onChange={this.onChange} value={this.state.mobile} label="Mobile" />
                 <br /><br />
-                <MyButton onClick={this.placeOrder} />
+                <MyButton onClick={this.placeOrder} data="Place Order" />
             </div>
         )
     }
