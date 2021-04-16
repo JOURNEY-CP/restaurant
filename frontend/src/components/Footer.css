@@ -1,11 +1,11 @@
 .restaurant-footer{
     font-size: 35px;
-    font-weight: 350;
+    font-weight: 600;
     background-color: #6200ee;
     min-height: 70px;
     line-height: 20px;
     color:white;
-    font-style: italic;
+   
 
 }
 .restaurant-footer-heart{

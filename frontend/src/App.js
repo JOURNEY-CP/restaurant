@@ -17,9 +17,11 @@ function App() {
     console.log('hello World');
     return (
         <div className="App">
-            <Router>
-                <Header />
-                <TopAppBarFixedAdjust>
+              
+              <Router>
+                  <div>
+              <Header />
+              <TopAppBarFixedAdjust>
                     <br />
                     <div className="app-main-area">
                         <Switch>
@@ -30,10 +32,12 @@ function App() {
                             <Route path="*" component={NotFound} />
                         </Switch>
                     </div>
-                </TopAppBarFixedAdjust>
-                <Footer />
+            </TopAppBarFixedAdjust>
+            </div>
             </Router>
-        </div>
+            <Footer />
+            </div>
+       
     );
 }
 
