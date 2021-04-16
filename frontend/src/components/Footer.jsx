@@ -10,7 +10,7 @@ class Footer extends Component {
     render() {
         return (
             <div className="restaurant-footer">
-                <p className="restaurant-footer-text">Developed with <span className="restaurant-footer-heart"> &hearts;</span> by Team Journey</p>
+                <div className="restaurant-footer-text">Developed with <span className="restaurant-footer-heart"> &hearts;</span> by Team Journey</div>
             </div>
         );
     }
