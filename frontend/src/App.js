@@ -6,6 +6,7 @@ import {  Route, Switch } from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import './components/globalStyle.css';
 import Header from './components/Header';
 import ItemsList from './components/ItemsList';
 import NotFound from './components/NotFound';

@@ -3,6 +3,10 @@ import connect from 'react-redux/es/connect/connect';
 import { Link } from 'react-router-dom';
 import { onUpdateItemQuantity } from '../redux/actions/cart';
 import './Cart.css';
+import './globalStyle.css';
+import MyButton from './Util/MyButton';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 const dotenv = require('dotenv');
 
@@ -85,14 +89,12 @@ class Cart extends Component {
     render() {
         return (
             <div className="cart">
-                <Link to="/items">View all items</Link>
                 <h1>Cart</h1>
                 <h3>{this.props.order.length} items in Cart</h3>
                 <this.addToCart />
                 <div className="cart-place-order">
-                    <button type="button" onClick={this.placeOrder}>
-                        PlaceOrder
-                    </button>
+                    <Link to="/items"><MyButton icon={<MenuBookIcon/>} data="View All Items"/></Link>
+                    <MyButton icon={<ArrowForwardIcon/>} onClick={this.placeOrder} data="Proceed to Checkout"/>
                 </div>
             </div>
         );
