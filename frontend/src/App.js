@@ -17,7 +17,7 @@ function App() {
     console.log('hello World');
     return (
         <div className="App">
-            <Router basename={process.env.REACT_APP_HOMEPAGE}>
+            <Router>
                 <Header />
                 <TopAppBarFixedAdjust>
                     <br />
