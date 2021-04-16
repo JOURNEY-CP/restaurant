@@ -1,14 +1,21 @@
 .restaurant-footer{
     font-size: 35px;
-    font-weight: 700;
-    background-color: #205ed1;
-    height: 70px;
-    line-height: 70px;
+    font-weight: 350;
+    background-color: #6200ee;
+    min-height: 70px;
+    line-height: 20px;
     color:white;
+    font-style: italic;
+
 }
 .restaurant-footer-heart{
     color: red;
     font-size: 45px;
+    margin-top: 2px;
+}
+.restaurant-footer-heart2{
+    color: red;
+    font-size: 30px;
     margin-top: 2px;
 }
 @media only screen and (max-width: 600px) {
@@ -17,6 +24,10 @@
         font-weight: 500;
     }
     .restaurant-footer-heart{
+        font-size: 25px;
+        margin-top: 2px;
+    }
+    .restaurant-footer-heart2{
         font-size: 25px;
         margin-top: 2px;
     }
