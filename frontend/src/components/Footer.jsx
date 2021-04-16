@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Footer.css';
 class Footer extends Component {
     constructor(props) {
         super(props);
@@ -9,8 +9,8 @@ class Footer extends Component {
 
     render() {
         return (
-            <div>
-                <h1>you are in footer</h1>
+            <div className="restaurant-footer">
+                <p className="restaurant-footer-text">Developed with <span className="restaurant-footer-heart">&hearts;</span>by Team Journey</p>
             </div>
         );
     }
