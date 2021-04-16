@@ -4,6 +4,7 @@ import connect from 'react-redux/es/connect/connect';
 import { onGetCustomerMetaData } from '../../redux/actions/metaData';
 import MyButton from '../Util/MyButton';
 import './order.css';
+import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 
 const axios = require('axios').default;
 
@@ -53,7 +54,7 @@ class Order extends Component {
                 <br/><br/>
                 <TextField id="mobile" onChange={this.onChange} value={this.state.mobile} label="Mobile" />
                 <br /><br />
-                <MyButton onClick={this.placeOrder} data="Place Order" />
+                <MyButton icon={<RestaurantMenuIcon/>} onClick={this.placeOrder} data="Place Order" />
             </div>
         )
     }

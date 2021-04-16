@@ -3,9 +3,11 @@ import Button from '@material-ui/core/Button';
 
 export default class MyButton extends Component {
     render() {
-        const { color,variant, href } = this.props;
+        const { color,variant, href,icon } = this.props;
         return href ? (
-               <Button
+            <Button
+                className="myButton"
+                startIcon={icon}
                 variant={variant||"contained"}
                 color={color || "primary"}
                 href={href}
@@ -14,7 +16,10 @@ export default class MyButton extends Component {
             {this.props.data||"Button"}
             </Button>
         ):(
-            <Button
+                <Button
+                    
+                className="myButton"
+                    startIcon={icon}
                 variant={variant||"contained"}
                 color={color||"primary"}
                 onClick={() => this.props && this.props.onClick && this.props.onClick()}
