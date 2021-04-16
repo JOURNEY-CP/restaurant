@@ -14,7 +14,7 @@ import SampleItem from './components/SampleItem';
 
 dotenv.config();
 function App() {
-    console.log('hello World');
+    console.log(process.env);
     return (
         <div className="App">
             <Router>
