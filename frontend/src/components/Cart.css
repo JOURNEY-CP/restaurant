@@ -64,3 +64,11 @@
     opacity: 1;
     transform: translateY(0); 
 }
+
+.cart-place-order{
+    position: relative;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
