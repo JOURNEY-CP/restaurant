@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import connect from 'react-redux/es/connect/connect';
 import {onAddItemToCart} from '../../redux/actions/cart';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Item.css';
 const dotenv = require('dotenv');
 dotenv.config();
@@ -64,14 +65,11 @@ class Item extends Component {
                                 </svg>
                             </button>
                         </div>
-                        <div classsName="item-details-cart-button">
-                            <button className="item-btn-cart" onClick={()=>this.props.onAddItemToCart(this.state)}>
-                                <svg>
-                                    <use href="/images/icons.svg#icon-shopping-cart"></use>
-                                </svg>
-                                {/* <span>Add to cart</span> */}
-                            </button>
-                        </div>
+                        <button className="item-btn-cart" onClick={()=>this.props.onAddItemToCart(this.state)}>
+                            <ShoppingCartIcon className="item-btn-addtocart"/>
+                            {/* <span>Add to cart</span> */}
+                        </button>
+                    
                     </div>
                 </div>
             </div>
