@@ -16,3 +16,4 @@ jobs:
           projectId: qrfoodorder
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+          REACT_APP_BACKEND_HOST: '${{ secrets.REACT_APP_BACKEND_HOST }}'
