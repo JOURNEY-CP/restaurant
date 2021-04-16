@@ -4,7 +4,7 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
 env:
-  REACT_APP_BACKEND_HOST: '${{ secrets.REACT_APP_BACKEND_HOST }}'
+  REACT_APP_BACKEND_HOST: '${{ secrets.HEROKU_BACKEND_APP_NAME }}'
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
