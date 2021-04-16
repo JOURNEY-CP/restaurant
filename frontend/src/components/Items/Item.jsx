@@ -32,7 +32,7 @@ class Item extends Component {
     }
     render() {
         return (
-            <div className="item">
+            <div className="item" id="item-single">
                 <div className="item-image">
                     <img 
                         className="item-img" 
@@ -54,16 +54,18 @@ class Item extends Component {
                                 <use href="/images/icons.svg#icon-man"></use>
                             </svg>
                             <span className="item-details-servings">{this.state.quantity} SERVINGS</span>
-                            <button className="item-btn-inc-dec"  onClick={()=>{this.handleServings(-1)}}>
-                                <svg>
-                                    <use href="/images/icons.svg#icon-circle-with-minus"></use>
-                                </svg>
-                            </button>
-                            <button className="item-btn-inc-dec"  onClick={()=>{this.handleServings(1)}}>
-                                <svg>
-                                    <use href="/images/icons.svg#icon-circle-with-plus"></use>
-                                </svg>
-                            </button>
+                            <div className="item-inc-dec-buttons">
+                                <button className="item-btn-inc-dec"  onClick={()=>{this.handleServings(-1)}}>
+                                    <svg>
+                                        <use href="/images/icons.svg#icon-circle-with-minus"></use>
+                                    </svg>
+                                </button>
+                                <button className="item-btn-inc-dec"  onClick={()=>{this.handleServings(1)}}>
+                                    <svg>
+                                        <use href="/images/icons.svg#icon-circle-with-plus"></use>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                         <button className="item-btn-cart" onClick={()=>this.props.onAddItemToCart(this.state)}>
                             <ShoppingCartIcon className="item-btn-addtocart"/>
