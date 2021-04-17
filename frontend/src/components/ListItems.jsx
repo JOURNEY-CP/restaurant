@@ -1,10 +1,7 @@
 import React, { Component} from 'react'
 import connect from 'react-redux/es/connect/connect';
-import '@material/react-list/dist/list.css';
-import List, {ListItem, ListItemText} from '@material/react-list';
 import {onGetItemList} from '../redux/actions/items';
 import './ListItem.css';
-import Paper from '@material-ui/core/Paper';
 const axios=require('axios').default;
 const dotenv = require('dotenv');
 dotenv.config();
