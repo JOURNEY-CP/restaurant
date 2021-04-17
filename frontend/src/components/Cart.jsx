@@ -7,9 +7,7 @@ import './globalStyle.css';
 import MyButton from './Util/MyButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import IconButton from '@material-ui/core/IconButton'
+import Servings from './Items/Servings';
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -45,50 +43,7 @@ class Cart extends Component {
                     <div className="cart-item-middle">
                         <div className="cart-item-middle-name">{item.name}</div>
                         <div className="cart-item-middle-quantity">
-                           {/* <div>
-                                <svg className="cart-item-servings-icon">
-                                    <use href="/images/icons.svg#icon-man" />
-                                </svg>
-                            </div>
-                             <div className="cart-item-servings-data">
-                                <span className="cart-item-servings-count">{item.quantity}</span>
-                                <span className="cart-item-servings-text"> SERVINGS</span>
-                            </div>
-                            <div className="cart-item-servings-inc-dec-buttons">
-                                <button
-                                    type="button"
-                                    className="btn-tiny btn-decrease"
-                                    onClick={() => this.handleServings(item.id, -1)}
-                                >
-                                    <svg>
-                                        <use href="/images/icons.svg#icon-circle-with-minus" />
-                                    </svg>
-                                </button>
-                                
-                                <button
-                                    type="button"
-                                    className="btn-tiny btn-increase"
-                                    onClick={() => this.handleServings(item.id, 1)}
-                                >
-                                    <svg>
-                                        <use href="/images/icons.svg#icon-circle-with-plus" />
-                                    </svg>
-                                </button>
-                            </div>*/}
-                            <div className="item-details-inc-dec-buttons">
-                                <svg className="item-icon-man">
-                                    <use href="/images/icons.svg#icon-man"></use>
-                                </svg>
-                                <span className="item-details-servings">{item.quantity} SERVINGS</span>
-                                <div className="item-inc-dec-buttons">
-                                    <IconButton color="primary" onClick={()=>this.handleServings(item.id,-1)}>
-                                        <RemoveCircleIcon/>
-                                    </IconButton>
-                                    <IconButton color="primary" onClick={()=>this.handleServings(item.id,1)}>
-                                        <AddCircleIcon/>
-                                    </IconButton>
-                                </div>
-                            </div>
+                            <Servings quantity={item.quantity} onClick={quantity => this.props.onUpdateItemQuantity({ "id": item.id, "val": quantity }) } />
                         </div> 
                     </div>
                     <div className="cart-item-price">

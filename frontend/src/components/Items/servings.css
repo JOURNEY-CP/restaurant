@@ -1,0 +1,22 @@
+.servings{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width:221px;
+    height: 35px;
+
+}
+.servings-man{
+    height: 35px;
+    width: 35px;
+    fill: #3f51b5;
+}
+.servings-text{
+    font-weight: 600;
+    line-height: 35px;
+}
+.servings-button {
+    height: 35px;
+}
+
