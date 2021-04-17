@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import './components/globalStyle.css';
 import Header from './components/Header';
 import ItemsList from './components/ItemsList';
+import ListItems from './components/ListItems';
 import NotFound from './components/NotFound';
 import Order from './components/Order/Order';
 import SampleItem from './components/SampleItem';
@@ -25,7 +26,7 @@ function App() {
                     <div className="app-main-area">
                         <Switch>
                             <Route exact path="/" component={ItemsList} />
-                            <Route exact path="/items" component={ItemsList} />
+                            <Route exact path="/items" component={ListItems} />
                             <Route exact path="/items/:item_id" component={SampleItem} />
                             <Route exact path="/cart" component={Cart} />
                             <Route exact path="/order" component={Order} />
