@@ -12,7 +12,6 @@ class Header extends Component {
         super(props);
 
         this.state = {};
-        // console.log(browserHistory);
     }
 
     handlePath = () => {
@@ -37,15 +36,8 @@ class Header extends Component {
                                         aria-label="print page"
                                         hasRipple
                                         icon="shopping_cart"
-                                        // onClick={()=>{this.props.history&&this.props.history.push(`/cart`)}}
                                     />
                                 </Link>
-
-                                {/* <button class="btn-small recipe__btn recipe__btn recipe__btn--add" onClick={()=>console.log(this.props)}>
-                            <svg class="search__icon">
-                                <use href="/images/icons.svg#icon-shopping-cart"></use>
-                            </svg>
-                        </button> */}
                             </TopAppBarIcon>
                         </TopAppBarSection>
                     </TopAppBarRow>

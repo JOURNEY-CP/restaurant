@@ -13,8 +13,8 @@ class ItemsList extends Component {
     }
   
     async componentDidMount(){
-        setTimeout(function() { //Start the timer
-         this.setState({render:true})//After 1 second, set render to true
+        setTimeout(function() {
+         this.setState({render:true})
      }.bind(this), 1000)
       //console.log(process.env.REACT_APP_BACKEND_HOST);
        const res =await axios.get(`${process.env.REACT_APP_BACKEND_HOST}/api/user/item`)

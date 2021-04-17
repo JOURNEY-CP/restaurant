@@ -147,18 +147,6 @@ btn, .btn-small, .btn-small:link, .btn-small:visited {
                       padding: 1.3rem 2rem;
                       background-image: linear-gradient(to right bottom, #FBDB89, #f48880); }
 
-                      /* .recipe__love {
-                        background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
-                        border-radius: 50%;
-                        border: none;
-                        cursor: pointer;
-                        height: 3rem;
-                        width: 3rem;
-                        margin-left: 40%;
-                        transition: all .2s;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center; } */
                         .recipe__love svg {
                           height: 2.75rem;
                           width: 2.75rem;
