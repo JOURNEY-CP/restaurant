@@ -7,7 +7,7 @@ import './App.css';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import './components/globalStyle.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import ItemsList from './components/ItemsList';
 import ListItems from './components/ListItems';
 import NotFound from './components/NotFound';
