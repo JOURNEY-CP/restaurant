@@ -42,7 +42,7 @@ class Item extends Component {
     render() {
         return (
             <div className="item-page">
-                <MyButton icon={<MenuBookIcon/>} onClick={()=>this.goToItemsPage} data="View all Items"/>
+                <MyButton icon={<MenuBookIcon/>} onClick={this.goToItemsPage} data="View all Items"/>
                 <div className="item" id="item-single">
                     <div className="item-image">
                         <img 
