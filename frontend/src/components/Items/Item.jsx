@@ -36,7 +36,9 @@ class Item extends Component {
     render() {
         return (
             <div className="item-page">
-                <MyButton icon={<MenuBookIcon/>} onClick={this.goToItemsPage} data="View all Items"/>
+                <div className='margin-10'>
+                    <MyButton icon={<MenuBookIcon />} onClick={this.goToItemsPage} data="View all Items" />
+                </div>
                 <div className="item" id="item-single">
                     <div className="item-image">
                         <img 
@@ -54,8 +56,10 @@ class Item extends Component {
                             <div className="item-details-value"><b>:&nbsp;&nbsp;</b>{this.state.price}</div>
                         </div>
                          <div className="item-servings-addtocart">
-                            <Servings quantity={this.state.quantity} onClick={quantity => this.setState({ quantity })} />
-                            <div className="item-btn-addtocart" >
+                            <div className="margin-10">
+                                <Servings quantity={this.state.quantity} onClick={quantity => this.setState({ quantity })} />
+                            </div>
+                            <div className="item-btn-addtocart margin-10" >
                                 <MyButton icon={<AddShoppingCartIcon/>} onClick={()=>this.props.onAddItemToCart(this.state)} data="Add to Cart"/>
                             </div>
                         </div>
