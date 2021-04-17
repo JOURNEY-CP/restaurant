@@ -8,14 +8,16 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import FeedbackIcon from '@material-ui/icons/Feedback';
-import RestaurantIcon from '@material-ui/icons/Restaurant';
 import CodeIcon from '@material-ui/icons/Code';
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 import BugReportIcon from '@material-ui/icons/BugReport';
 import MenuIcon from '@material-ui/icons/Menu';
 import GithubIcon from '@material-ui/icons/GitHub';
+import PostAddIcon from '@material-ui/icons/PostAdd';
 import IconButton from '@material-ui/core/IconButton';
+import { useHistory } from 'react-router';
 
 const useStyles = makeStyles({
   list: {
@@ -26,7 +28,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LeftDrawer() {
+export default function LeftDrawer(props) {
+  const history = useHistory();
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -53,21 +56,36 @@ export default function LeftDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-      <h1 style={{marginLeft:"15px",color:"#3f51b5"}}>JobStocker</h1>
+      <h1 style={{marginLeft:"15px",color:"#3f51b5"}}>QR FoodOrder</h1>
       <Divider/>
-      <a href="https://github.com/JOURNEY-CP/jobstocker" target="blank" style={{textDecoration:"none",color:"inherit"}}>
+      <div onClick={()=>history.push("/items")} style={{textDecoration:"none",color:"inherit"}}>
+        <ListItem>
+            <ListItemIcon><MenuBookIcon /></ListItemIcon>
+            <ListItemText primary={"View All Items"} />
+        </ListItem>
+      </div>
+      <div onClick={()=>history.push("/cart")} style={{textDecoration:"none",color:"inherit"}}>
+        <ListItem>
+            <ListItemIcon><ShoppingCartIcon /></ListItemIcon>
+            <ListItemText primary={"View Cart"} />
+        </ListItem>
+      </div>
+      <Divider />
+      <h3 style={{marginLeft:"15px",color:"#3f51b5"}}>Discussions</h3>
+      <Divider />
+      <a href="https://github.com/JOURNEY-CP/restaurant" target="blank" style={{textDecoration:"none",color:"inherit"}}>
         <ListItem>
             <ListItemIcon><GithubIcon /></ListItemIcon>
             <ListItemText primary={"View Source"} />
         </ListItem>
-        </a>
-      <a href="https://github.com/JOURNEY-CP/jobstocker/issues" target="blank" style={{textDecoration:"none",color:"inherit"}}>
+      </a>
+      <a href="https://github.com/JOURNEY-CP/restaurant/issues" target="blank" style={{textDecoration:"none",color:"inherit"}}>
         <ListItem>
             <ListItemIcon><BugReportIcon /></ListItemIcon>
             <ListItemText primary={"Issues"} />
         </ListItem>
         </a>
-         <a href="https://github.com/JOURNEY-CP/jobstocker/discussions" target="blank" style={{textDecoration:"none",color:"inherit"}}>
+         <a href="https://github.com/JOURNEY-CP/restaurant/discussions" target="blank" style={{textDecoration:"none",color:"inherit"}}>
         <ListItem>
             <ListItemIcon><QuestionAnswerIcon /></ListItemIcon>
             <ListItemText primary={"Want to discuss Anything or add new feuture?"} />
@@ -82,6 +100,12 @@ export default function LeftDrawer() {
       <Divider />
       <h3 style={{marginLeft:"15px",color:"#3f51b5"}}>Look at our other Apps</h3>
       <Divider />
+      <a href="https://jobstocker.web.app/" target="blank" style={{textDecoration:"none",color:"inherit"}}>
+        <ListItem>
+            <ListItemIcon><PostAddIcon /></ListItemIcon>
+            <ListItemText primary={"JobStocker"} />
+        </ListItem>
+      </a>
       <a href="https://journey-cp.github.io/NOTES/" target="blank" style={{textDecoration:"none",color:"inherit"}}>
         <ListItem>
             <ListItemIcon><MenuBookIcon /></ListItemIcon>
@@ -92,12 +116,6 @@ export default function LeftDrawer() {
         <ListItem>
             <ListItemIcon><CodeIcon /></ListItemIcon>
             <ListItemText primary={"30 days of Code"} />
-        </ListItem>
-      </a>
-      <a href="http://journey-restaurant.herokuapp.com/" target="blank" style={{textDecoration:"none",color:"inherit"}}>
-        <ListItem>
-            <ListItemIcon><RestaurantIcon /></ListItemIcon>
-            <ListItemText primary={"QR foodOrder"} />
         </ListItem>
       </a>
       <Divider />
