@@ -1,3 +1,38 @@
 a {
     text-decoration: none;
 }
+.margin-10{
+    margin:10px;
+}
+
+.item-details-inc-dec-buttons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+}
+.item-icon-man{
+    height: 2rem;
+    width: 2rem;
+    fill: #3f51b5;
+    margin-top: 20px
+}
+.item-details-servings{
+    font-weight: 600;
+    line-height: 65px;
+}
+.item-inc-dec-buttons{
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(5);
+    transition: all .4s; 
+}
+
+#item-single:hover .item-inc-dec-buttons{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+   
+}
