@@ -77,11 +77,6 @@ class Item extends Component {
                             <div className="item-btn-addtocart" >
                                 <MyButton icon={<AddShoppingCartIcon/>} onClick={()=>this.props.onAddItemToCart(this.state)} data="Add to Cart"/>
                             </div>
-                            {/* <button className="item-btn-cart" onClick={()=>this.props.onAddItemToCart(this.state)}>
-                                <AddShoppingCartIcon className="item-btn-addtocart"/>
-                                {/* <span>Add to cart</span> 
-                            </button> */}
-                        
                         </div>
                     </div>
                 </div>
