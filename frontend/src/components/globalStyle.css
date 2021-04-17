@@ -20,14 +20,23 @@ a {
 }
 .item-inc-dec-buttons{
     display: flex;
-    visibility: hidden;
+    /* visibility: hidden; */
     align-items: center;
     opacity: 0;
-    transform: translateX(5);
+    transform: translateY(5);
     transition: all .4s; 
 }
+
+@media (hover: hover) {
+    .item-inc-dec-buttons{
+        visibility: hidden;
+    }
+    
+  }
+
 #item-single:hover .item-inc-dec-buttons{
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
+   
 }
