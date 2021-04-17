@@ -1,6 +1,9 @@
 a {
     text-decoration: none;
 }
+.margin-10{
+    margin:10px;
+}
 
 .item-details-inc-dec-buttons{
     position: relative;

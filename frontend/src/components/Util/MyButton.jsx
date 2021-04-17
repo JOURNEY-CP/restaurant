@@ -19,7 +19,7 @@ export default class MyButton extends Component {
                 <Button
                     
                 className="myButton"
-                    startIcon={icon}
+                startIcon={icon}
                 variant={variant||"contained"}
                 color={color||"primary"}
                 onClick={() => this.props && this.props.onClick && this.props.onClick()}

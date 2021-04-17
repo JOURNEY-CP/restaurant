@@ -64,8 +64,10 @@ class Cart extends Component {
                 <h3>{this.props.order.length} items in Cart</h3>
                 <this.addToCart />
                 <div className="cart-place-order">
-                    <Link to="/items"><MyButton icon={<MenuBookIcon/>} data="View All Items"/></Link>
-                    <MyButton icon={<ArrowForwardIcon/>} onClick={this.placeOrder} data="Proceed to Checkout"/>
+                    <Link className='margin-10' to="/items"><MyButton icon={<MenuBookIcon/>} data="View All Items"/></Link>
+                    <div className='margin-10'>
+                        <MyButton icon={<ArrowForwardIcon />} onClick={this.placeOrder} data="Proceed to Checkout" />
+                    </div>
                 </div>
             </div>
         );
