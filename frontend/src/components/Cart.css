@@ -9,8 +9,6 @@
     width: 15%;
 }
 .cart-item-middle{
-    /* background-color: aqua; */
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,7 +19,6 @@
     text-align: left;
 }
 .cart-item-middle-name{
-    /* background-color: chocolate; */
     font-weight: 700;
     margin-top: 5px;
     font-size: 20px;
@@ -35,36 +32,8 @@
     justify-content: flex-start;
 }
 .cart-item-price{
-    /* background-color: brown; */
     width: 25%;
 }
-/* SERVINGS */
-
-.cart-item-servings-icon {
-    height: 2rem;
-    width: 2rem;
-    fill: #F59A83;
-    margin-right: 1rem; }
-.cart-item-servings-data{
-    font-weight: 600;
-    padding-top: 10px;
-}
-
-.cart-item-servings-inc-dec-buttons{
-    display: flex;
-    margin-left: 0rem;
-    visibility: hidden;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: all .4s;
-}
-.cart-item:hover .cart-item-servings-inc-dec-buttons {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0); 
-}
-
 .cart-place-order{
     position: relative;
     display: flex;
