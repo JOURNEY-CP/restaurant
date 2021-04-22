@@ -4,9 +4,13 @@ function cartReducer(state, action) {
     let item;
     switch (action.type) {
         case ADD_ITEM_TO_CART:
-            // if(state.order)
-            //     order=[...state.order]
-            order=[...state.order,action.data]
+            let index = state.order.findIndex((obj=>obj.id===action.data.id));
+            if(index!==-1){
+                state.order[index]=action.data;
+                order=[...state.order];
+            }else{
+                order=[...state.order,action.data]
+            }
             return { ...state, order };
         case UPDATE_ITEM_QUANTITY:
             console.log(action.data);
