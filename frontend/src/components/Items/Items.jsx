@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import connect from 'react-redux/es/connect/connect';
-import {onGetItemList} from '../redux/actions/items';
+import {onGetItemList} from '../../redux/actions/items';
 import './ListItem.css';
 const axios=require('axios').default;
 const dotenv = require('dotenv');

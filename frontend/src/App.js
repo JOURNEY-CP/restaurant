@@ -8,7 +8,7 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import './components/globalStyle.css';
 import Header from './components/Header/Header';
-import ListItems from './components/ListItems';
+import ListItems from './components/Items/Items';
 import NotFound from './components/NotFound';
 import Order from './components/Order/Order';
 import Item from './components/Items/Item';
