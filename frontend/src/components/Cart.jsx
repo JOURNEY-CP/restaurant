@@ -22,7 +22,6 @@ class Cart extends Component {
         this.props.history.push("/order");
     }
     handleServings= (id,val) =>{
-        //console.log(this.props.order);
         this.props.onUpdateItemQuantity({"id":id,"val":val})
     }
     addToCart = () =>(
