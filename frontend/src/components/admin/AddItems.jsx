@@ -42,6 +42,7 @@ class AddItems extends Component {
             </div>
         )
     }
+    
 }
 
 export default AddItems;
