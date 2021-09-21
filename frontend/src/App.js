@@ -12,6 +12,7 @@ import ListItems from './components/ListItems';
 import NotFound from './components/NotFound';
 import Order from './components/Order/Order';
 import Item from './components/Items/Item';
+import AddItems from './components/admin/AddItems';
 
 dotenv.config();
 function App() {
@@ -29,6 +30,7 @@ function App() {
                             <Route exact path="/items/:item_id" component={Item}/>
                             <Route exact path="/cart" component={Cart} />
                             <Route exact path="/order" component={Order} />
+                            <Route exact path="/admin/add" component={AddItems} />
                             <Route path="*" component={NotFound} />
                         </Switch>
                     </div>
